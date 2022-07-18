@@ -90,8 +90,8 @@ final class CardTableViewCell: UITableViewCell {
 
     public func configureCell(with model: Card) {
         firstLabel.text = model.name
-        secondLabel.text = model.type
-        thirdLabel.text = model.number
+        secondLabel.text = "type: " + (model.type ?? "null")
+        thirdLabel.text = "#" + (model.number ?? "null")
     }
 
 }
