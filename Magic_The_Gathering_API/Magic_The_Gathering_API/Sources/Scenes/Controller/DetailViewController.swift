@@ -9,6 +9,8 @@ import UIKit
 
 final class DetailViewController: UIViewController {
 
+    var model: Card?
+
     //MARK: - Private Properties
     var detailView: CardDetailView? {
         guard isViewLoaded else { return nil }
@@ -17,24 +19,25 @@ final class DetailViewController: UIViewController {
 
     //MARK: - Lifecycle
 
-    init(model: Card) {
-        super.init(nibName: nil, bundle: nil)
-        detailView?.configure(with: model)
-        navigationConfig()
-    }
-
     override func loadView() {
         view = CardDetailView()
     }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationConfig()
+        detailViewConfig()
     }
 }
 
 private extension DetailViewController {
+
     func navigationConfig() {
         title = "About Card"
+    }
+
+    func detailViewConfig() {
+        detailView?.configure(with: model!)
     }
 }
 

@@ -79,8 +79,9 @@ extension CardsTableViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        //не понимаю, почему тут не работает, вроде уже все что можно сделал, либо опять далеко ушел)
-        let vc = DetailViewController(model: cards[indexPath.row])
+        let model = cards[indexPath.row]
+        let vc = DetailViewController()
+        vc.model = model
 
         self.present(vc, animated: true)
     }
