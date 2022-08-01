@@ -1,0 +1,6 @@
+module Pods_Magic_The_Gathering_API {
+  umbrella header "Pods-Magic_The_Gathering_API-umbrella.h"
+
+  export *
+  module * { export * }
+}
